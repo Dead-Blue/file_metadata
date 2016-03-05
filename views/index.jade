@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(action='/files/upload',method='POST',enctype="multipart/form-data")
+    input(type='file',name="file")
+    // input(type='text',name='test')
+    input(type='submit',value='upload')
+  script.
+    window.filesize = !{JSON.stringify(filesize)} ;
+    if(window.filesize!=null){
+        alert('file size:'+window.filesize);
+        window.location="/";
+    }
+    
